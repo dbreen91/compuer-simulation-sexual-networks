@@ -1,7 +1,7 @@
 compuer-simulation-sexual-networks
 ==================================
 
-A computer simulation of sexual networks in humans7
+A computer simulation of sexual networks in humans
 
 A person may have any number of sexual partners within their life time, with each partner in turn also possibly 
 
