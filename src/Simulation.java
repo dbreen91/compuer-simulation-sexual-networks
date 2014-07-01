@@ -20,60 +20,87 @@ public class Simulation {
 	static Random randTwo;
 	int rNmOne;
 	int rNmTwo;
+	static int didDelete;
 	
-	public Simulation(){
-		
+	
+	
+	public static void main(String [] args)
+	{
+		int l = 0;
 		opr = new Operations();
 		population = opr.populate();
 		popInteractions = new ArrayList<Person>();
-		interaction = new int[2];
+		randOne = new Random();
+		randTwo = new Random();
+		
+		interaction = new int[3];
 		interactions = new ArrayList<Object>();
 		time = 0;
 		birthRate = (population.size() / 100) * 15;
 		
-	}
-	
-	public static void main(String [] args)
-	{
+		popInteractions = population;	
+		
+		
 		
 		do{
 			
-		
-			popInteractions = population;	
-		
-		
 		do{
+			
+			
 			pOnePosition = randOne.nextInt(popInteractions.size());
 			pTwoPosition = randTwo.nextInt(popInteractions.size());
 			
 			pOne = popInteractions.get(pOnePosition);
 			pTwo = popInteractions.get(pTwoPosition);
+			
+			
 				
 			if(pOnePosition!= pTwoPosition){
 				
 				if((Math.abs(pOne.age - pTwo.age) == pOne.ageRange) && (Math.abs(pOne.age - pTwo.age) == pTwo.ageRange)){
+					 
 					
+					
+						System.out.println(pOne.interactions + " " +  pOne.maxInteractions);
+						l++;					
 					
 					interaction[0] = pOne.id;
 					interaction[1] = pTwo.id;
 					interaction[2] = time;
+					
 					
 					interactions.add(interaction);
 					
 					pOne.interactions ++;
 					pTwo.interactions ++;
 					
-					if(pOne.interactions == pOne.maxInteractions){
+					
+					if(pOne.interactions > pOne.maxInteractions){
+						
 						popInteractions.remove(pOnePosition);
 						popInteractions.trimToSize();
+						
 					}
 					
-					if(pTwo.interactions == pTwo.maxInteractions){
-						popInteractions.remove(pTwoPosition);
+					if(pTwo.interactions > pTwo.maxInteractions){
+						
+						if(pTwoPosition == popInteractions.size()){
+						popInteractions.remove(pTwoPosition-1);
 						popInteractions.trimToSize();
+						didDelete = 0;
+						}
+						else{
+							popInteractions.remove(pTwoPosition);
+							popInteractions.trimToSize();	
+						}
+						
+							
+						
 					}
 					
 				}
+				
+				
 	
 			}
 				
@@ -93,7 +120,9 @@ public class Simulation {
 		birthRate = (population.size() / 100) * 15;
 			
 			time = time + 10;
+			System.out.println("dsdsds" + time);
 		}while(time < 1010);
+		
 		
 		
 	}

@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-
-
-
 public class Operations {
 	
 	ArrayList<Person> population;
@@ -32,12 +29,16 @@ public class Operations {
 		interactions = data.setInteractions();
 		ranges = data.setRanges();
 		
-		currentId = 0;
+		rand = new Random();
+		rnd = 0;
 		
+		currentId = 0;
+	
 		
 	}
 
 	public ArrayList<Person> populate(){
+		
 		
 		for(int i=0;i<99;i++){
 			
@@ -76,6 +77,7 @@ public class Operations {
 			
 			population.add(person);
 		}
+		
 		
 		return population;
 	}
