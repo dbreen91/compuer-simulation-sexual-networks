@@ -1,6 +1,6 @@
 
 
-----Work in progress----
+----WORK IN PROGRESS----
 
 A computer simulation of sexual networks in humans
 
