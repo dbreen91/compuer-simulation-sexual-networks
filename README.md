@@ -1,5 +1,6 @@
-compuer-simulation-sexual-networks
-==================================
+
+
+----Work in progress----
 
 A computer simulation of sexual networks in humans
 
