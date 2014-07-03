@@ -13,7 +13,7 @@ public class Operations {
 	int currentId;
 	
 	ArrayList<Integer> ages;
-	ArrayList<Integer> interactions;
+	ArrayList<Integer> level;
 	ArrayList<Integer> ranges;
 	
 	Random rand;
@@ -21,12 +21,13 @@ public class Operations {
 	
 	
 	public Operations(){
+		
 		population = new ArrayList<Person>();
 		person = new Person();
 		data = new Data();
 		
 		ages = data.setAges();
-		interactions = data.setInteractions();
+		level = data.setPromiscuityLevel();
 		ranges = data.setRanges();
 		
 		rand = new Random();
@@ -34,7 +35,7 @@ public class Operations {
 		
 		currentId = 0;
 	
-		
+
 	}
 
 	public ArrayList<Person> populate(){
@@ -47,10 +48,10 @@ public class Operations {
 			ages.remove(rnd);
 			ages.trimToSize();
 			
-			rnd = rand.nextInt(interactions.size());
-			person.maxInteractions = interactions.get(rnd);
-			interactions.remove(rnd);
-			interactions.trimToSize();
+			rnd = rand.nextInt(level.size());
+			person.maxInteractions = level.get(rnd);
+			level.remove(rnd);
+			level.trimToSize();
 			
 			rnd = rand.nextInt(ranges.size());
 			person.ageRange = ranges.get(rnd);
@@ -58,17 +59,15 @@ public class Operations {
 			ranges.trimToSize();
 			
 			person.id = currentId;
-			currentId ++;
-			
-			
+			currentId ++;			
 			
 			if(ages.isEmpty()){
 				
 				ages = data.setAges();
 			}
 			
-			if(interactions.isEmpty()){
-				interactions = data.setInteractions();
+			if(level.isEmpty()){
+				level = data.setPromiscuityLevel();
 			}
 
 			if(ranges.isEmpty()){
@@ -78,7 +77,6 @@ public class Operations {
 			population.add(person);
 		}
 		
-		
 		return population;
 	}
 	
@@ -87,14 +85,12 @@ public ArrayList<Person> birth(ArrayList<Person> pop, int birthRate){
 		
 		for(int i=pop.size();i<birthRate;i++){
 			
-			
 			person.age = 20;
 			
-
-			rnd = rand.nextInt(interactions.size());
-			person.maxInteractions = interactions.get(rnd);
-			interactions.remove(rnd);
-			interactions.trimToSize();
+			rnd = rand.nextInt(level.size());
+			person.maxInteractions = level.get(rnd);
+			level.remove(rnd);
+			level.trimToSize();
 			
 			rnd = rand.nextInt(ranges.size());
 			person.ageRange = ranges.get(rnd);
@@ -103,16 +99,14 @@ public ArrayList<Person> birth(ArrayList<Person> pop, int birthRate){
 			
 			person.id = currentId;
 			currentId ++;
-			
-
-			
+						
 			if(ages.isEmpty()){
 
 				ages = data.setAges();
 			}
 			
-			if(interactions.isEmpty()){
-				interactions = data.setInteractions();
+			if(level.isEmpty()){
+				level = data.setPromiscuityLevel();
 			}
 
 			if(ranges.isEmpty()){
@@ -125,7 +119,5 @@ public ArrayList<Person> birth(ArrayList<Person> pop, int birthRate){
 		return pop;
 	}
 	
-	
-	
-	
+
 }

@@ -40,6 +40,11 @@ public class Simulation {
 		
 		popInteractions = population;	
 		
+		for(int i = 0;i<popInteractions.size();i++){
+			popInteractions.get(i).setMaxInteractions();
+			
+		}
+		
 		
 		
 		do{
