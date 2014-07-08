@@ -12,7 +12,9 @@ public class Person {
 	int id;
 	boolean isAlive;
 	Random rand;
-	
+	int upper; 
+	int lower; 
+	Operations opr;
 
 	public Person(){
 		
@@ -24,39 +26,31 @@ public class Person {
 		id = 0;
 		isAlive = true;
 		rand = new Random();
+		opr = new Operations();
 		
 		
 	}
 	
-	public void checkAlive(){
+	public boolean checkAlive(){
 		
-		if(age==60){
-			isAlive = false;
-		}
+		isAlive = opr.checkAlive(age);
+		return isAlive;
+		
+	}
+	
+	public int getUpper(){
+        upper = age + ageRange;
+		return upper;
+	}
+	
+	public int getLower(){
+        lower = age - ageRange;
+		return lower;
 	}
 	
 	public void setMaxInteractions(){
 		
-		switch(promiscuityLevel){
-		
-		case 1: 
-			//If level 1, set Max interactions to a number between 1-10
-			maxInteractions = rand.nextInt((10-1)+1) + 1;
-			break;
-		case 2:
-			//If level 2, set Max interactions to a number between 10-20
-			maxInteractions = rand.nextInt((20-10)+1) + 10;
-			break;
-		case 3:
-			//If level 3, set Max interactions to a number between 20-30
-			maxInteractions = rand.nextInt((30-20)+1) + 20;
-			break;
-		case 4:
-			//If level 4, set Max interactions to a number between 30-50
-			maxInteractions = rand.nextInt((50-30)+1) +30;
-			break;
-			
-		}
+		maxInteractions = opr.setInteractions(promiscuityLevel);
 		
 				
 	}

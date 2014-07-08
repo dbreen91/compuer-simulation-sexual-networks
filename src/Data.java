@@ -26,6 +26,14 @@ public class Data {
 	
 	public ArrayList<Integer> setAges(){
 		
+		for(int i=0;i<dataValues.Initial_Pop_0;i++){
+			ages.add(0);
+		}
+		
+		for(int i=0;i<dataValues.Initial_Pop_10;i++){
+			ages.add(10);
+		}
+		
 		for(int i=0;i<dataValues.Initial_Pop_20;i++){
 			ages.add(20);
 		}
@@ -42,6 +50,13 @@ public class Data {
 		for(int i = 0;i<dataValues.Initial_Pop_60;i++){
 			ages.add(60);
 		}
+		for(int i = 0;i<dataValues.Initial_Pop_70;i++){
+			ages.add(70);
+		}
+		for(int i = 0;i<dataValues.Initial_Pop_80;i++){
+			ages.add(80);
+		}
+		
 		
 		return ages;
 	}
@@ -53,15 +68,15 @@ public class Data {
 		}
 		
 		for(int i = 0;i<dataValues.Percent_With_Medium_Promiscuity;i++){
-			level.add(1);
+			level.add(2);
 		}
 		
 		for(int i = 0;i<dataValues.Percent_With_High_Promiscuity;i++){
-			level.add(1);
+			level.add(3);
 		}
 		
 		for(int i = 0;i<dataValues.Percent_With_Very_High_Promiscuity;i++){
-			level.add(1);
+			level.add(4);
 		}
 		
 		

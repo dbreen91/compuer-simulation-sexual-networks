@@ -8,7 +8,6 @@ public class Operations {
 	Data data;
 	
 	int age;
-	int maxInteractions;
 	int ageRange;
 	int currentId;
 	
@@ -17,7 +16,11 @@ public class Operations {
 	ArrayList<Integer> ranges;
 	
 	Random rand;
-	int rnd; 
+	int rnd;
+	
+	boolean isAlive;
+	int maxInteractions;
+	
 	
 	
 	public Operations(){
@@ -34,22 +37,28 @@ public class Operations {
 		rnd = 0;
 		
 		currentId = 0;
+		
+		isAlive = true;
 	
 
 	}
-
+	
+	
 	public ArrayList<Person> populate(){
 		
 		
-		for(int i=0;i<99;i++){
+		for(int i=0;i<1000;i++){
 			
+			person = new Person();
 			rnd = rand.nextInt(ages.size());
 			person.age = ages.get(rnd);
+			
 			ages.remove(rnd);
+			
 			ages.trimToSize();
 			
 			rnd = rand.nextInt(level.size());
-			person.maxInteractions = level.get(rnd);
+			person.promiscuityLevel = level.get(rnd);
 			level.remove(rnd);
 			level.trimToSize();
 			
@@ -77,18 +86,22 @@ public class Operations {
 			population.add(person);
 		}
 		
+		
 		return population;
 	}
 	
 	
 public ArrayList<Person> birth(ArrayList<Person> pop, int birthRate){
-		
-		for(int i=pop.size();i<birthRate;i++){
+	
+
+	
+		for(int i=0;i<birthRate;i++){
 			
+			person = new Person();
 			person.age = 20;
 			
 			rnd = rand.nextInt(level.size());
-			person.maxInteractions = level.get(rnd);
+			person.promiscuityLevel = level.get(rnd);
 			level.remove(rnd);
 			level.trimToSize();
 			
@@ -99,6 +112,8 @@ public ArrayList<Person> birth(ArrayList<Person> pop, int birthRate){
 			
 			person.id = currentId;
 			currentId ++;
+			
+			
 						
 			if(ages.isEmpty()){
 
@@ -115,9 +130,113 @@ public ArrayList<Person> birth(ArrayList<Person> pop, int birthRate){
 			
 			pop.add(person);
 		}
-		
+		System.out.println("this shud be " + pop.size());
 		return pop;
 	}
+
+		public int generateRandom(int min, int max) {
+		
+		    rnd = rand.nextInt((max - min) + 1) + min;
+		
+		    return rnd;
+		}
+		
+		public boolean checkAlive(int age) {
+			
+			switch(age){
+			
+			case 0: 
+				if(generateRandom(1, 202)==1) {
+					isAlive = false;
+					}
+			case 5:
+				if(generateRandom(1, 4881)==1) {
+					isAlive = false;
+					}
+				break;
+			case 10 :
+			case 15 :
+				if(generateRandom(1, 9375)==1) {
+					isAlive = false;
+					}
+				break;
+			case 20:
+			case 25:
+				if(generateRandom(1, 3020)==1) {
+					isAlive = false;
+					}
+				break;
+			case 30:
+			case 35:
+				if(generateRandom(1, 3703)==1) {
+					isAlive = false;
+					}
+				break;
+			case 40:
+			case 45:
+				if(generateRandom(1, 870)==1) {
+					isAlive = false;
+					}
+				break;
+			case 50:
+			case 55:
+				if(generateRandom(1, 350)==1) {
+					isAlive = false;
+					}
+				break;
+			case 60:
+			case 65:
+				if(generateRandom(1, 145)==1) {
+					isAlive = false;
+					}
+				break;
+			case 70:
+			case 75:
+				if(generateRandom(1, 54)==1) {
+					isAlive = false;
+					}
+				break;
+			case 80:
+			case 85:
+				if(generateRandom(1, 18)==1) {
+					isAlive = false;
+					}
+				break;
+			case 90:
+				if(generateRandom(1, 6)==1) {
+					isAlive = false;
+					}
+			break;
+			case 100:
+					isAlive = false;
+			break;
+			
+		}
+			
+			return isAlive;
+		}
+		
+		public int setInteractions(int level){
+			
+			switch(level){
+			
+			case 1: 
+				maxInteractions = rand.nextInt((10-1)+1) + 1;
+				break;
+			case 2:
+				maxInteractions = rand.nextInt((20-10)+1) + 10;
+				break;
+			case 3:
+				maxInteractions = rand.nextInt((30-20)+1) + 20;
+				break;
+			case 4:
+				maxInteractions = rand.nextInt((50-30)+1) +30;
+				break;	
+			}
+			return maxInteractions;
+		}
+		
+		
 	
 
 }

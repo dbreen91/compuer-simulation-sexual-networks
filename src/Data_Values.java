@@ -7,11 +7,15 @@ public class Data_Values {
 	int Range_Percentage_30 = 30;
 	
 	//Percentages of people with a particular age in the initial population
-	int Initial_Pop_20 = 20;
-	int Initial_Pop_30 = 20;
-	int Initial_Pop_40 = 20;
-	int Initial_Pop_50 = 20;
-	int Initial_Pop_60 = 20;
+	int Initial_Pop_0  = 0;
+	int Initial_Pop_10 = 0;
+	int Initial_Pop_20 = 100;
+	int Initial_Pop_30 = 0;
+	int Initial_Pop_40 = 0;
+	int Initial_Pop_50 = 0;
+	int Initial_Pop_60 = 0;
+	int Initial_Pop_70 = 0;
+	int Initial_Pop_80 = 0;
 	
 	//Percentages of people with various levels of promiscuity 
 	int Percent_With_Low_Promiscuity = 40;
