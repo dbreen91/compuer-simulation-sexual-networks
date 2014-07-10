@@ -1,6 +1,6 @@
 
 
-----WORK IN PROGRESS----
+----WORK IN PROGRESS----BUILT IN ECLIPSE----
 
 A computer simulation of sexual networks in humans
 
