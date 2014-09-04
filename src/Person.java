@@ -10,8 +10,12 @@ public class Person {
 	int interactions;
 	int ageRange;
 	int id;
+	int inCoupleWith;
 	
+	boolean settle;
 	boolean isAlive;
+	boolean cheater;
+	boolean inCouple;
 	
 	Random rand;
 	int rnd;
@@ -30,10 +34,16 @@ public class Person {
 		ageRange = 0;
 		id = 0;
 		
+		settle = true;
 		isAlive = true;
+		cheater = false;
+		inCouple = false;
+		inCoupleWith = 0;
 		
 		rand = new Random();
 		rnd = 0;
+		
+		
 
 	}
 	

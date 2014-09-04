@@ -14,6 +14,7 @@ public class Operations {
 	ArrayList<Integer> ages;
 	ArrayList<Integer> level;
 	ArrayList<Integer> ranges;
+	ArrayList<Boolean>  settlers;
 	
 	Random rand;
 	int rnd;
@@ -29,6 +30,7 @@ public class Operations {
 		ages = data.setAges();
 		level = data.setPromiscuityLevel();
 		ranges = data.setRanges();
+		settlers = data.setSettlers();
 		
 		rand = new Random();
 		rnd = 0;
@@ -59,6 +61,11 @@ public class Operations {
 			ranges.remove(rnd);
 			ranges.trimToSize();
 			
+			rnd = rand.nextInt(settlers.size());
+			person.settle = settlers.get(rnd);
+			settlers.remove(rnd);
+			settlers.trimToSize();
+			
 			person.id = currentId;
 			currentId ++;			
 			
@@ -74,6 +81,10 @@ public class Operations {
 				ranges = data.setRanges();
 			}
 			
+			if(settlers.isEmpty()){
+				settlers = data.setSettlers();
+			}
+			
 			population.add(person);
 		}
 		
@@ -86,12 +97,17 @@ public class Operations {
 		for(int i=0;i<birthRate;i++){
 			
 			person = new Person();
-			person.age = 20;
+			person.age = 0;
 			
 			rnd = rand.nextInt(level.size());
 			person.promiscuityLevel = level.get(rnd);
 			level.remove(rnd);
 			level.trimToSize();
+			
+			rnd = rand.nextInt(ranges.size());
+			person.ageRange = ranges.get(rnd);
+			ranges.remove(rnd);
+			ranges.trimToSize();
 			
 			rnd = rand.nextInt(ranges.size());
 			person.ageRange = ranges.get(rnd);
